@@ -18,18 +18,84 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
+" lightline config
+" let g:lightline = {
+"   \ 'colorscheme': 'one',
+"   \ 'tabline': {
+"   \   'left': [['buffers']],
+"   \ },
+"   \ 'active': {
+"   \   'left': [ [ 'mode', 'paste' ],
+"   \             [ 'readonly', 'filename', 'modified'] ],
+"   \   'right': [['gitbranch']]
+"   \ },
+"   \ 'component_expand': {
+"   \   'buffers': 'lightline#bufferline#buffers'
+"   \ },
+"   \ 'component_type': {
+"   \   'buffers': 'tabsel'
+"   \ },
+"   \ 'component_function': {
+"   \   'gitbranch': 'FugitiveHead'
+"   \ },
+"   \ }
+
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
+  \ 'colorscheme': 'one',
+  \ }
+let g:lightline.tabline = {
+  \ 'left': [ [ 'buffers' ] ],
+  \ 'right': [ [ 'close' ] ],
+  \ }
+let g:lightline.component_expand = {
+      \  'buffers': 'lightline#bufferline#buffers',
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
       \ }
 
+let g:lightline.component_type = {
+      \     'buffers': 'tabsel',
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
 
+let g:lightline#bufferline#filename_modifier = ':t' " only filename, no path
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#unnamed      = '[No Name]'
+let g:lightline#bufferline#unicode_symbols = 0
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#min_buffer_count = 2
+let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
+
+let g:lightline#bufferline#number_map = {
+  \ '0': ' 0 ',
+  \ '1': ' 1 ',
+  \ '2': ' 2 ',
+  \ '3': ' 3 ',
+  \ '4': ' 4 ',
+  \ '5': ' 5 ',
+  \ '6': ' 6 ',
+  \ '7': ' 7 ',
+  \ '8': ' 8 ',
+  \ '9': ' 9 ',
+  \ }
+
+" lightline-tabline navigation
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -54,6 +120,7 @@ nnoremap <silent> <Leader>- :vertical resize -5<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+
 fun! GoYCM()
     nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
     nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
@@ -75,12 +142,12 @@ let g:airline_theme='one'
 "set background=dark
 
 " Give more space for displaying messages.
-set cmdheight=2
 set laststatus=2 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set showtabline=2
 
 set nu
 set ruler
@@ -98,6 +165,8 @@ set autoindent
 set smartindent
 set showcmd
 set incsearch
+set noshowmode
 
 set textwidth=80
 set colorcolumn=+1
+
