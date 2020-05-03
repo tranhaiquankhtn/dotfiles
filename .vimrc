@@ -9,6 +9,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-bufferline'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
@@ -18,34 +19,12 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-" lightline config
-" let g:lightline = {
-"   \ 'colorscheme': 'one',
-"   \ 'tabline': {
-"   \   'left': [['buffers']],
-"   \ },
-"   \ 'active': {
-"   \   'left': [ [ 'mode', 'paste' ],
-"   \             [ 'readonly', 'filename', 'modified'] ],
-"   \   'right': [['gitbranch']]
-"   \ },
-"   \ 'component_expand': {
-"   \   'buffers': 'lightline#bufferline#buffers'
-"   \ },
-"   \ 'component_type': {
-"   \   'buffers': 'tabsel'
-"   \ },
-"   \ 'component_function': {
-"   \   'gitbranch': 'FugitiveHead'
-"   \ },
-"   \ }
-
 let g:lightline = {
   \ 'colorscheme': 'one',
   \ }
 let g:lightline.tabline = {
-  \ 'left': [ [ 'buffers' ] ],
-  \ 'right': [ [ 'close' ] ],
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
   \ }
 let g:lightline.component_expand = {
       \  'buffers': 'lightline#bufferline#buffers',
@@ -70,7 +49,6 @@ let g:lightline#bufferline#unnamed      = '[No Name]'
 let g:lightline#bufferline#unicode_symbols = 0
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#min_buffer_count = 2
-let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
 
 let g:lightline#bufferline#number_map = {
   \ '0': ' 0 ',
@@ -96,6 +74,7 @@ nmap <Leader>7 <Plug>lightline#bufferline#go(7)
 nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
 if executable('rg')
     let g:rg_derive_root='true'
 endif
@@ -103,6 +82,9 @@ endif
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let mapleader = " "
 
+nnoremap <leader>tn :tabNext <CR>
+nnoremap <leader>tc :tabclose <CR>
+nnoremap <leader>te :tabedit<SPACE>
 
 " NERDTree
 map <C-o> :NERDTreeToggle<CR>
@@ -138,8 +120,6 @@ if (empty($TMUX))
 endif
 
 colorscheme one
-let g:airline_theme='one'
-"set background=dark
 
 " Give more space for displaying messages.
 set laststatus=2 
@@ -148,6 +128,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set showtabline=2
+set guioptions-=e  " Don't use GUI tabline
+
 
 set nu
 set ruler
