@@ -9,6 +9,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
@@ -19,71 +20,35 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " lightline config
-" let g:lightline = {
-"   \ 'colorscheme': 'one',
-"   \ 'tabline': {
-"   \   'left': [['buffers']],
-"   \ },
-"   \ 'active': {
-"   \   'left': [ [ 'mode', 'paste' ],
-"   \             [ 'readonly', 'filename', 'modified'] ],
-"   \   'right': [['gitbranch']]
-"   \ },
-"   \ 'component_expand': {
-"   \   'buffers': 'lightline#bufferline#buffers'
-"   \ },
-"   \ 'component_type': {
-"   \   'buffers': 'tabsel'
-"   \ },
-"   \ 'component_function': {
-"   \   'gitbranch': 'FugitiveHead'
-"   \ },
-"   \ }
-
 let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ }
-let g:lightline.tabline = {
-  \ 'left': [ [ 'buffers' ] ],
-  \ 'right': [ [ 'close' ] ],
-  \ }
-let g:lightline.component_expand = {
-      \  'buffers': 'lightline#bufferline#buffers',
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
       \ }
 
-let g:lightline.component_type = {
-      \     'buffers': 'tabsel',
-      \     'linter_checking': 'left',
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'linter_ok': 'left',
-      \ }
+
 
 let g:lightline#bufferline#filename_modifier = ':t' " only filename, no path
 let g:lightline#bufferline#show_number  = 1
-let g:lightline#bufferline#shorten_path = 1
+let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#unnamed      = '[No Name]'
 let g:lightline#bufferline#unicode_symbols = 0
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#min_buffer_count = 2
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
 let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
 
-let g:lightline#bufferline#number_map = {
-  \ '0': ' 0 ',
-  \ '1': ' 1 ',
-  \ '2': ' 2 ',
-  \ '3': ' 3 ',
-  \ '4': ' 4 ',
-  \ '5': ' 5 ',
-  \ '6': ' 6 ',
-  \ '7': ' 7 ',
-  \ '8': ' 8 ',
-  \ '9': ' 9 ',
-  \ }
 
 " lightline-tabline navigation
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -96,6 +61,7 @@ nmap <Leader>7 <Plug>lightline#bufferline#go(7)
 nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
 if executable('rg')
     let g:rg_derive_root='true'
 endif
