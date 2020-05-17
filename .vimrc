@@ -9,7 +9,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+Plug 'bling/vim-bufferline'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
@@ -19,21 +19,19 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-" lightline config
 let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
-      \ },
-      \ 'component_expand': {
-      \   'buffers': 'lightline#bufferline#buffers'
-      \ },
-      \ 'component_type': {
-      \   'buffers': 'tabsel'
+  \ 'colorscheme': 'one',
+  \ }
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+let g:lightline.component_expand = {
+      \  'buffers': 'lightline#bufferline#buffers',
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
       \ }
       \ }
 
@@ -46,8 +44,6 @@ let g:lightline#bufferline#unnamed      = '[No Name]'
 let g:lightline#bufferline#unicode_symbols = 0
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#min_buffer_count = 2
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
 
 
 " lightline-tabline navigation
@@ -69,6 +65,9 @@ endif
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let mapleader = " "
 
+nnoremap <leader>tn :tabNext <CR>
+nnoremap <leader>tc :tabclose <CR>
+nnoremap <leader>te :tabedit<SPACE>
 
 " NERDTree
 map <C-o> :NERDTreeToggle<CR>
@@ -104,8 +103,6 @@ if (empty($TMUX))
 endif
 
 colorscheme one
-let g:airline_theme='one'
-"set background=dark
 
 " Give more space for displaying messages.
 set laststatus=2 
@@ -114,6 +111,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set showtabline=2
+set guioptions-=e  " Don't use GUI tabline
+
 
 set nu
 set ruler
