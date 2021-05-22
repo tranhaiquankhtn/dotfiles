@@ -1,5 +1,6 @@
 DATA_PATH = vim.fn.stdpath('data')
 CACHE_PATH = vim.fn.stdpath('cache')
+LSP_BIN_PATH = vim.fn.getenv("XDG_DATA_HOME") .. "/npm/bin"
 
 vim.o.completeopt = "menuone,noselect"
 vim.fn.sign_define(
