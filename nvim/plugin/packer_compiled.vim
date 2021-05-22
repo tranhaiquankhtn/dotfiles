@@ -47,8 +47,8 @@ local function save_profiles(threshold)
 end
 
 time("Luarocks path setup", true)
-local package_path_str = "/Users/thaiquan/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/thaiquan/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/thaiquan/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/thaiquan/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/thaiquan/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/gru-2019014/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/gru-2019014/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/gru-2019014/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/gru-2019014/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/gru-2019014/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -73,69 +73,72 @@ time("Defining packer_plugins", true)
 _G.packer_plugins = {
   ["auto-pairs"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/auto-pairs"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/auto-pairs"
   },
   ["galaxyline.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/opt/galaxyline.nvim"
-  },
-  ["gruvbox-material"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/gruvbox-material"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  gruvbox = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gruvbox"
   },
   nerdtree = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/nerdtree"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nerdtree"
   },
   ["nvim-comment"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/nvim-comment"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-comment"
   },
   ["nvim-compe"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/opt/packer.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/opt/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-devicons"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/vim-devicons"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-devicons"
   },
   ["vim-dispatch"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/vim-dispatch"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-dispatch"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-fugitive"
   },
   ["vim-startify"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/vim-startify"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-startify"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/Users/thaiquan/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-vsnip"
   }
 }
 

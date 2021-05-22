@@ -1,6 +1,6 @@
-local vuels_path = LSP_BIN_PATH .. "/vls"
+-- local vuels_path = LSP_BIN_PATH .. "/vls"
 require'lspconfig'.vuels.setup{
-    cmd = { vuels_path },
+    -- cmd = { vuels_path },
     init_options = {
       config = {
         css = {},

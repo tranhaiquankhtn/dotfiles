@@ -41,5 +41,4 @@ require('config.efm')
 require('config.compe')
 require('config.neocomment')
 require('config.starify')
--- require('config.galaxyline')
-
+require('config.galaxyline')

@@ -207,3 +207,4 @@ gls.short_line_left[2] = {
 
 gls.short_line_right[1] = {BufferIcon = {provider = 'BufferIcon', highlight = {colors.grey, colors.bg}}}
 
+

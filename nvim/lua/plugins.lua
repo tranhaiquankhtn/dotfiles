@@ -3,9 +3,9 @@ return require('packer').startup(function()
 
 
     -- Color scheme
-    use { 'sainnhe/gruvbox-material' }
+    -- use { 'sainnhe/gruvbox-material' }
     use { 'ryanoasis/vim-devicons' }
-    -- use 'gruvbox-community/gruvbox'
+    use 'gruvbox-community/gruvbox'
 
     -- Fuzzy finder
     use {
@@ -38,7 +38,12 @@ return require('packer').startup(function()
     use { 'mhinz/vim-startify' }
 
     -- galaxyline
-    use { 'glepnir/galaxyline.nvim', opt = true}
+    use {
+        'glepnir/galaxyline.nvim',
+        branch = 'main',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+    -- use { 'glepnir/galaxyline.nvim', opt = true}
     -- use { 'romgrk/barbar.nvim', opt = true}
 
 

@@ -12,10 +12,10 @@ utils.map('n', '<TAB>', ':bnext')
 utils.map('n', '<S-TAB>', ':bprevious')
 
 -- navigate between windows
-utils.map('n', '<Leader>h', ':set wincmd h<CR>')
-utils.map('n', '<Leader>j', ':set wincmd j<CR>')
-utils.map('n', '<Leader>k', ':set wincmd k<CR>')
-utils.map('n', '<Leader>l', ':set wincmd l<CR>')
+utils.map('n', '<Leader>h', '<C-w>h')
+utils.map('n', '<Leader>j', '<C-w>j')
+utils.map('n', '<Leader>k', '<C-w>k')
+utils.map('n', '<Leader>l', '<C-w>l')
 
 -- Better indenting
 utils.map('v', '<', '<gv')
