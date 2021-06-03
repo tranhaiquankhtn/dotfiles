@@ -5,7 +5,6 @@ local flake8 = {
 }
 
 local isort = {formatCommand = "isort --quiet -", formatStdin = true}
-
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
 local black = {formatCommand = "black --quiet -", formatStdin = true}
 
@@ -46,16 +45,18 @@ local yamllint = {
     lintFormats = true
 }
 
+local luaformat = {
+        formatCommand = "lua-format -i",
+        formatStdin = true
+}
+
 require'lspconfig'.efm.setup {
     init_options = {documentFormatting = true, codeAction = true},
     filetypes = {"lua", "python", "html", "css", "json", "yaml", "vue", "sh", "dockerfile"},
     settings = {
         rootMarkers = {".git/"},
         languages = {
-            lua = {
-                formatCommand = "lua-format -i",
-                formatStdin = true,
-            },
+            lua = { luaformat },
             python = { flake8, isort, yapf },
             vue = { prettier },
             html = { html_prettier },

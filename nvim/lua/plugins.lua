@@ -1,11 +1,12 @@
 return require('packer').startup(function()
-    use {'wbthomason/packer.nvim', opt = true}
+    use { 'wbthomason/packer.nvim', opt = true }
 
 
     -- Color scheme
-    -- use { 'sainnhe/gruvbox-material' }
+    use { 'sainnhe/gruvbox-material' }
     use { 'ryanoasis/vim-devicons' }
-    use 'gruvbox-community/gruvbox'
+    -- use 'gruvbox-community/gruvbox'
+    use { 'nvim-treesitter/nvim-treesitter' }
 
     -- Fuzzy finder
     use {
@@ -14,16 +15,16 @@ return require('packer').startup(function()
     }
 
     -- nerdtree
-    use 'preservim/nerdtree'
+    use { 'preservim/nerdtree' }
 
     -- nerdcommenter
-    -- use 'preservim/nerdcommenter'
-    use 'terrortylor/nvim-comment'
+    -- use { 'preservim/nerdcommenter' }
+    use { 'terrortylor/nvim-comment' }
 
     -- lsp config
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-compe'
-    use 'hrsh7th/vim-vsnip'
+    use { 'neovim/nvim-lspconfig' }
+    use { 'hrsh7th/nvim-compe' }
+    use { 'hrsh7th/vim-vsnip' }
 
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }
@@ -43,8 +44,17 @@ return require('packer').startup(function()
         branch = 'main',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
-    -- use { 'glepnir/galaxyline.nvim', opt = true}
     -- use { 'romgrk/barbar.nvim', opt = true}
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' }
+    }
+
+    use {'bling/vim-bufferline'}
+
+
+    use { 'mbbill/undotree' }
 
 
 end)

@@ -79,9 +79,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
-  gruvbox = {
+  ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gruvbox"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+  },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gruvbox-material"
   },
   nerdtree = {
     loaded = true,
@@ -98,6 +102,10 @@ _G.packer_plugins = {
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -119,6 +127,14 @@ _G.packer_plugins = {
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/undotree"
+  },
+  ["vim-bufferline"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-bufferline"
   },
   ["vim-devicons"] = {
     loaded = true,

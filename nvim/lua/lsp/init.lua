@@ -33,6 +33,7 @@ vim.cmd 'nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
 
 -- autoformat
 vim.cmd 'autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()'
+vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities

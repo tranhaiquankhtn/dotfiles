@@ -26,8 +26,8 @@ vim.g.startify_enable_special = 0
 --        return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 --    endfunction
 
--- vim.g.startify_bookmarks = {
---             { 'i': '~/.config/nvim/init.vim' },
---             { 'z': '~/.config/zsh/.zshrc' },
---         }
+-- vim.g.startify_bookmarks = [
+--                 {'i':'~/.config/nvim/init.vim'},
+--                 {'z': '~/.config/zsh/.zshrc' },
+--             ]
 
