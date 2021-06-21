@@ -4,24 +4,35 @@ local flake8 = {
     lintFormats = {"%f:%l:%c: %m"}
 }
 
+local autoflake = {
+    formatCommand = "autoflake --remove-all-unused-imports --remove-unused-variables -",
+    formatStdin = true
+}
+
 local isort = {formatCommand = "isort --quiet -", formatStdin = true}
+local isort_pre = {formatCommand = "isort --force-single-line-imports --quiet -", formatStdin = true}
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
 local black = {formatCommand = "black --quiet -", formatStdin = true}
 
 local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
+-- 
+-- local eslint = {
+--     lintCommand = "./node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+--     lintIgnoreExitCode = true,
+--     lintStdin = true,
+--     lintFormats = {"%f:%l:%c: %m"},
+--     formatCommand= "./node_modules/.bin/eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+--     formatStdin = true
+-- }
 
-local eslint = {
-    lintCommand = "./node_modules/.bin/eslint -f unix --stdin --stdin-filename ${INPUT}",
-    lintIgnoreExitCode = true,
-    lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"},
-    formatCommand = "./node_modules/.bin/eslint --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-    formatStdin = true
-}
 
 local html_prettier = {
     formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser html',
     formatStdin = true
+}
+
+local css_prettier = {
+    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser css'
 }
 
 local shfmt = {
@@ -46,23 +57,34 @@ local yamllint = {
 }
 
 local luaformat = {
-        formatCommand = "lua-format -i",
-        formatStdin = true
+    formatCommand = "lua-format -i",
+    formatStdin = true
 }
 
 require'lspconfig'.efm.setup {
     init_options = {documentFormatting = true, codeAction = true},
-    filetypes = {"lua", "python", "html", "css", "json", "yaml", "vue", "sh", "dockerfile"},
+    filetypes = {"lua","python", "html", "css", "json", "yaml", "vue", "sh", "dockerfile"},
     settings = {
         rootMarkers = {".git/"},
         languages = {
             lua = { luaformat },
-            python = { flake8, isort, yapf },
+            python = {
+                isort_pre,
+                autoflake,
+                -- flake8,
+                black,
+                isort,
+            },
             vue = { prettier },
             html = { html_prettier },
+            css = { css_prettier },
             sh = { shellcheck, shfmt },
             dockerfile = { hadolint },
-            yaml = {yamllint}
+            yaml = {yamllint},
+            -- javascript = {eslint, prettier},
+            -- javascriptreact = {eslint, prettier},
+            -- typescript = {eslint, prettier},
+            -- typescriptreact = {eslint, prettier},
         }
     }
 }

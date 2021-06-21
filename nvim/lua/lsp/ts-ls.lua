@@ -1,4 +1,3 @@
--- local tsserver_path = LSP_BIN_PATH .. "/tsserver"
 require'lspconfig'.tsserver.setup {
-    -- cmd = {tsserver_path, "--stdio"}
+    on_attach = require'lsp'.tsserver_on_attach
 }

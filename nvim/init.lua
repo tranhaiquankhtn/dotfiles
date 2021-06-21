@@ -30,8 +30,11 @@ require('lsp.docker-ls')
 require('lsp.go-ls')
 require('lsp.html-ls')
 require('lsp.python-ls')
+require('lsp.diagnostic-ls')
 require('lsp.ts-ls')
 require('lsp.vue-ls')
+
+
 
 -- themes
 require('themes')

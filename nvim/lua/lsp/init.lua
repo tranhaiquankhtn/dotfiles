@@ -33,7 +33,11 @@ vim.cmd 'nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
 
 -- autoformat
 vim.cmd 'autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()'
-vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)'
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities
@@ -53,10 +57,16 @@ local function documentHighlight(client, bufnr)
         )
     end
 end
+
 local lsp_config = {}
 
 function lsp_config.common_on_attach(client, bufnr)
     documentHighlight(client, bufnr)
+end
+
+function lsp_config.tsserver_on_attach(client, bufnr)
+    lsp_config.common_on_attach(client, bufnr)
+    client.resolved_capabilities.document_formatting = false
 end
 
 return lsp_config
