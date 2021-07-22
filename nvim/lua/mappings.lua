@@ -5,7 +5,9 @@ utils.map('i', '<c-c>', '<Esc>')
 
 
 utils.map('n', '<Space>', '<NOP>')
-utils.map('n', '<C-l>', ':NERDTreeToggle<CR>')
+-- utils.map('n', '<C-l>', ':NERDTreeToggle<CR>')
+utils.map('n', '<C-l>', ':NvimTreeToggle<CR>')
+utils.map('n', '<Leader>r', ':NvimTreeRefresh<CR>')
 
 -- navigate between buffers
 utils.map('n', '<TAB>', ':bnext<CR>')

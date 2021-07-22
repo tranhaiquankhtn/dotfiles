@@ -63,7 +63,7 @@ local luaformat = {
 
 require'lspconfig'.efm.setup {
     init_options = {documentFormatting = true, codeAction = true},
-    filetypes = {"lua","python", "html", "css", "json", "yaml", "vue", "sh", "dockerfile"},
+    filetypes = {"lua","python", "html", "css", "json", "yaml", "sh", "dockerfile"},
     settings = {
         rootMarkers = {".git/"},
         languages = {
@@ -75,7 +75,7 @@ require'lspconfig'.efm.setup {
                 black,
                 isort,
             },
-            vue = { prettier },
+            -- vue = { prettier },
             html = { html_prettier },
             css = { css_prettier },
             sh = { shellcheck, shfmt },

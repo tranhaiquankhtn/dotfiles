@@ -1,7 +1,6 @@
 return require('packer').startup(function()
     use { 'wbthomason/packer.nvim', opt = true }
 
-
     -- Color scheme
     use { 'sainnhe/gruvbox-material' }
     use { 'ryanoasis/vim-devicons' }
@@ -15,7 +14,10 @@ return require('packer').startup(function()
     }
 
     -- nerdtree
-    use { 'preservim/nerdtree' }
+    -- use { 'preservim/nerdtree' }
+
+    -- nvim-tree
+    use 'kyazdani42/nvim-tree.lua'
 
     -- nerdcommenter
     -- use { 'preservim/nerdcommenter' }
@@ -55,6 +57,7 @@ return require('packer').startup(function()
 
     use { 'mbbill/undotree' }
 
+    use { 'lukas-reineke/indent-blankline.nvim'}
 
 
 end)

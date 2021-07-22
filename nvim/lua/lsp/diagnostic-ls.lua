@@ -1,5 +1,5 @@
 require('lspconfig').diagnosticls.setup{
-  filetypes={'javascript', 'javascriptreact', 'typescript', 'typescriptreact'},
+  filetypes={'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'},
   init_options = {
     linters = {
       eslint = {
@@ -45,7 +45,8 @@ require('lspconfig').diagnosticls.setup{
       javascript = 'prettier',
       typescript = 'prettier',
       javascriptreact = 'prettier',
-      typescriptreact = 'prettier'
+      typescriptreact = 'prettier',
+      vue = 'prettier'
     },
   }
 }
