@@ -92,7 +92,8 @@ export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 
 # NPM&Yarn
-export NODE_HOME=$HOME/.local/share/nodejs
+export NODE_HOME=$HOME/.local/share/node
 PATH=$NODE_HOME/bin:$PATH
+
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/yarnrc"'
