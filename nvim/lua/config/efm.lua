@@ -52,7 +52,7 @@ local hadolint = {
 }
 
 local yamllint = {
-    lintCommand = 'yamllint -f parsable -',
+    lintCommand = 'yamllint -d "{extends: default, rules: {line-length: {max: 120}}}" -f parsable -',
     lintFormats = true
 }
 

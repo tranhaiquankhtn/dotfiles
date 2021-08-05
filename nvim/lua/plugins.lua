@@ -59,5 +59,13 @@ return require('packer').startup(function()
 
     use { 'lukas-reineke/indent-blankline.nvim'}
 
+    -- flutter
+    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
+    use {'dart-lang/dart-vim-plugin'}
+    use {'thosakwe/vim-flutter'}
+
+    -- rust
+    use { 'simrat39/rust-tools.nvim' }
+
 
 end)

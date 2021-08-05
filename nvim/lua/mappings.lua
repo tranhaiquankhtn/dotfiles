@@ -21,8 +21,11 @@ utils.map('n', '<Leader>l', '<C-w>l')
 
 -- resize windows
 -- nnoremap <Leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-utils.map('n', '<C-]>', ':vertical resize +5<CR>')
-utils.map('n', '<C-[>', ':vertical resize -5<CR>')
+utils.map('n', '<C-w><', ':vertical resize +5<CR>')
+utils.map('n', '<C-w>>', ':vertical resize -5<CR>')
+
+utils.map('n', '<C-w>+', ':resize +5<CR>')
+utils.map('n', '<C-w>-', ':resize -5<CR>')
 
 
 -- Better indenting
@@ -45,6 +48,7 @@ utils.map('v', 'K', ':m \'<-2<CR>gv=gv')
 -- utils.map('n', '<Leader>y', '\"+y')
 -- utils.map('v', '<Leader>y', '\"+y')
 utils.map('n', '<Leader>Y', 'gg\"+yG')
+utils.map('n', 'Y', 'y$')
 
 -- utils.map('n', '<Leader>d', '\"_d')
 -- utils.map('v', '<Leader>d', '\"_d')

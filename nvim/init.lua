@@ -35,7 +35,8 @@ require('lsp.diagnostic-ls')
 require('lsp.ts-ls')
 require('lsp.vue-ls')
 require('lsp.tailwindls')
-
+require('lsp.dart-ls')
+require('lsp.rust-ls')
 
 
 -- themes
@@ -51,3 +52,5 @@ require('config.gitsigns')
 require('config.telescope')
 require('config.treesitter')
 require('config.nvim-tree')
+require('config.rust-tools')
+require('config.dart-vim-plugin')
