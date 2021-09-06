@@ -1,6 +1,6 @@
 -- local vuels_path = LSP_BIN_PATH .. "/vls"
 require'lspconfig'.vuels.setup{
-    -- cmd = { vuels_path },
+    on_attach = require'lsp'.vuels_on_attach,
     init_options = {
       config = {
         css = {},
@@ -22,9 +22,13 @@ require'lspconfig'.vuels.setup{
             useScaffoldSnippets = false
           },
           format = {
+            options = {
+                tabSize = 2,
+                useTab = false
+            },
             defaultFormatter = {
-              js = "prettier",
-              ts = "prettier"
+              js = "none",
+              ts = "none"
             },
             defaultFormatterOptions = {},
             scriptInitialIndent = false,

@@ -70,8 +70,8 @@ require'lspconfig'.efm.setup {
             lua = { luaformat },
             python = {
                 isort_pre,
-                autoflake,
-                -- flake8,
+                -- autoflake,
+                flake8,
                 black,
                 isort,
             },
