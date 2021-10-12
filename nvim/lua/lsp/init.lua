@@ -39,6 +39,7 @@ vim.cmd 'nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
 vim.cmd 'autocmd BufWritePre *.vue lua vim.lsp.buf.formatting_sync(nil, 1000)'
 vim.cmd 'autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)'
 vim.cmd 'autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)'
+vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)'
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities
