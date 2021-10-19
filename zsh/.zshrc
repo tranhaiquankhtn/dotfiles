@@ -52,9 +52,16 @@ then
     SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/id_rsa"
 fi
 
+
+alias vim='nvim'
 alias ssh="ssh $SSH_CONFIG $SSH_ID "
 alias ssh-copy-id="ssh-copy-id $SSH_ID"
+alias ls="exa"
+alias "ls -l"="exa -l"
+alias ll="exa -al"
 
+# Exa
+export EXA_COLORS="hs_err_pid*=37;41;1"
 
 # Vscode
 export VSCODE_EXTENSIONS="${XDG_CONFIG_HOME}/vscode/extensions"
@@ -101,5 +108,3 @@ alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/yarnrc"'
 # for pyenv compile
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
-
-alias vim='nvim'
