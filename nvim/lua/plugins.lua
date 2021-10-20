@@ -49,6 +49,7 @@ return require('packer').startup(function()
         branch = 'main',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
+    use { 'voldikss/vim-floaterm' }
     -- use { 'romgrk/barbar.nvim', opt = true}
 
     use {

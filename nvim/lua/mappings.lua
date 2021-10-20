@@ -1,7 +1,7 @@
 local utils = require('utils')
 
-utils.map('n', '<C+,>', '<cmd>noh<CR>') -- Clear highlights
-utils.map('i', '<c-c>', '<Esc>')
+utils.map('n', '<C-c>', '<cmd>noh<CR>') -- Clear highlights
+-- utils.map('i', '<c-c>', '<Esc>')
 
 
 utils.map('n', '<Space>', '<NOP>')
@@ -52,3 +52,5 @@ utils.map('n', 'Y', 'y$')
 
 -- utils.map('n', '<Leader>d', '\"_d')
 -- utils.map('v', '<Leader>d', '\"_d')
+utils.map('t', '<C-\\>', '<C-\\><C-n>:FloatermHide<CR>')
+utils.map('n', '<C-\\>', ':FloatermToggle<CR>')
