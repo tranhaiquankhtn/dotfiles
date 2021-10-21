@@ -13,9 +13,6 @@ return require('packer').startup(function()
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
 
-    -- nerdtree
-    -- use { 'preservim/nerdtree' }
-
     -- nvim-tree
     use {
         'kyazdani42/nvim-tree.lua',
