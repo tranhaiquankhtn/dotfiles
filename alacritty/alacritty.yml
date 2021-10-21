@@ -3,14 +3,11 @@ env:
   TERM: xterm-256color
 
 window:
-  decorations: none
+  decorations: buttonless
   startup_mode: Maximized
-  dimensions:
-    columns: 80
-    lines: 24
   padding:
-    x: 0
-    y: 0
+    x: 5
+    y: 5
 
   opacity: 1.0
   dynamic_title: true
