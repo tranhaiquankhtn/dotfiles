@@ -5,11 +5,11 @@ utils.map('n', '<C-c>', '<cmd>noh<CR>') -- Clear highlights
 
 
 utils.map('n', '<Space>', '<NOP>')
--- utils.map('n', '<C-l>', ':NERDTreeToggle<CR>')
-utils.map('n', '<C-l>', ':NvimTreeToggle<CR>')
+utils.map('n', '<C-\\>', ':NvimTreeToggle<CR>')
 utils.map('n', '<Leader>r', ':NvimTreeRefresh<CR>')
 
 -- navigate between buffers
+utils.map('n', '<C-e>', ':bw<CR>')
 utils.map('n', '<TAB>', ':bnext<CR>')
 utils.map('n', '<S-TAB>', ':bprevious<CR>')
 
@@ -52,5 +52,5 @@ utils.map('n', 'Y', 'y$')
 
 -- utils.map('n', '<Leader>d', '\"_d')
 -- utils.map('v', '<Leader>d', '\"_d')
-utils.map('t', '<C-\\>', '<C-\\><C-n>:FloatermHide<CR>')
-utils.map('n', '<C-\\>', ':FloatermToggle<CR>')
+-- utils.map('t', '<C-\\>', '<C-\\><C-n>:FloatermHide<CR>')
+-- utils.map('n', '<C-\\>', ':FloatermToggle<CR>')
