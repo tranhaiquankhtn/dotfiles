@@ -3,6 +3,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_RUNTIME_DIR=$HOME/.run
+export XDG_BIN_DIR=$HOME/.bin
 
 # FZF 
 export FZF_BASE="$XDG_CONFIG_HOME/fzf"
@@ -52,15 +53,8 @@ then
     SSH_ID="-i ${XDG_CONFIG_HOME}/ssh/id_rsa"
 fi
 
-
-alias vim='nvim'
-alias ssh="ssh $SSH_CONFIG $SSH_ID "
-alias ssh-copy-id="ssh-copy-id $SSH_ID"
-alias ls="exa"
-alias "ls -l"="exa -l"
-alias ll="exa -al"
-
 # Exa
+PATH=$PATH:$$XDG_BIN_DIR
 export EXA_COLORS="hs_err_pid*=37;41;1"
 
 # Vscode
@@ -108,3 +102,11 @@ alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/yarnrc"'
 # for pyenv compile
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+
+# alias
+alias vim='nvim'
+alias ssh="ssh $SSH_CONFIG $SSH_ID "
+alias ssh-copy-id="ssh-copy-id $SSH_ID"
+alias ls="exa"
+alias "ls -l"="exa -l"
+alias ll="exa -al"
