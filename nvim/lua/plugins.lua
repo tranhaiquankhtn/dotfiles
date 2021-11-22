@@ -24,7 +24,7 @@ return require('packer').startup(function()
     use { 'terrortylor/nvim-comment' }
 
     -- lsp config
-    use { 'neovim/nvim-lspconfig' }
+    use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
     use { 'hrsh7th/nvim-compe' }
     use { 'hrsh7th/vim-vsnip' }
 
