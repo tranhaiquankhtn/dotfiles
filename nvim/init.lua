@@ -44,13 +44,17 @@ require('themes')
 
 -- Config for the plugins
 require('config.efm')
-require('config.compe')
+-- require('config.compe')
 require('config.neocomment')
 require('config.starify')
 require('config.galaxyline')
 require('config.gitsigns')
 require('config.telescope')
-require('config.treesitter')
+-- require('config.treesitter')
 require('config.nvim-tree')
 require('config.rust-tools')
 require('config.dart-vim-plugin')
+require('config.nvim-cmp')
+
+-- Java
+require('lsp.jdtls')

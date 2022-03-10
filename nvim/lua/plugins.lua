@@ -25,8 +25,15 @@ return require('packer').startup(function()
 
     -- lsp config
     use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
-    use { 'hrsh7th/nvim-compe' }
+
+    -- For java
+    -- use { 'hrsh7th/nvim-compe' }
     use { 'hrsh7th/vim-vsnip' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/nvim-cmp' }
 
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }
@@ -68,5 +75,6 @@ return require('packer').startup(function()
     -- rust
     use { 'simrat39/rust-tools.nvim' }
 
+    use { 'mfussenegger/nvim-jdtls' }
 
 end)

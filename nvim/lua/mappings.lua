@@ -54,3 +54,13 @@ utils.map('n', 'Y', 'y$')
 -- utils.map('v', '<Leader>d', '\"_d')
 -- utils.map('t', '<C-\\>', '<C-\\><C-n>:FloatermHide<CR>')
 -- utils.map('n', '<C-\\>', ':FloatermToggle<CR>')
+--
+
+
+-- JDTLS mappings
+utils.map("n", "<leader>di", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
+utils.map("n", "<leader>dt", "<Cmd>lua require'jdtls'.test_class()<CR>")
+utils.map("n", "<leader>dn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>")
+utils.map("v", "<leader>de", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>")
+utils.map("n", "<leader>de", "<Cmd>lua require('jdtls').extract_variable()<CR>")
+utils.map("v", "<leader>dm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>")

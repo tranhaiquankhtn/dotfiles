@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -71,112 +71,169 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["auto-pairs"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/auto-pairs"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-path"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/cmp-path",
+    url = "https://github.com/hrsh7th/cmp-path"
   },
   ["dart-vim-plugin"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/dart-vim-plugin"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
+    url = "https://github.com/dart-lang/dart-vim-plugin"
   },
   ["flutter-tools.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim",
+    url = "https://github.com/akinsho/flutter-tools.nvim"
   },
   ["galaxyline.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
+    url = "https://github.com/glepnir/galaxyline.nvim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["gruvbox-material"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gruvbox-material"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-comment"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-comment"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
   },
-  ["nvim-compe"] = {
+  ["nvim-jdtls"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    url = "https://github.com/mfussenegger/nvim-jdtls"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/opt/packer.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/opt/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["rust-tools.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/rust-tools.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   undotree = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/undotree"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
   ["vim-bufferline"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-bufferline"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-bufferline",
+    url = "https://github.com/bling/vim-bufferline"
   },
   ["vim-devicons"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-devicons"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-devicons",
+    url = "https://github.com/ryanoasis/vim-devicons"
   },
   ["vim-dispatch"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-dispatch"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-dispatch",
+    url = "https://github.com/tpope/vim-dispatch"
   },
   ["vim-floaterm"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-floaterm"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-flutter"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-flutter"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-flutter",
+    url = "https://github.com/thosakwe/vim-flutter"
   },
   ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-fugitive"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-startify"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-startify"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-startify",
+    url = "https://github.com/mhinz/vim-startify"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-vsnip"
+    path = "/Users/gru-2019014/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 
@@ -186,5 +243,6 @@ if should_profile then save_profiles() end
 end)
 
 if not no_errors then
+  error_msg = error_msg:gsub('"', '\\"')
   vim.api.nvim_command('echohl ErrorMsg | echom "Error in packer_compiled: '..error_msg..'" | echom "Please check your config for correctness" | echohl None')
 end
