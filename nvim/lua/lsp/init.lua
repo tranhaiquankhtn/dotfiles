@@ -3,22 +3,11 @@ CACHE_PATH = vim.fn.stdpath('cache')
 LSP_BIN_PATH = vim.fn.getenv("XDG_DATA_HOME") .. "/npm/bin"
 
 vim.o.completeopt = "menuone,noselect"
-vim.fn.sign_define(
-    "LspDiagnosticsSignError",
-    {texthl = "LspDiagnosticsSignError", text = "😡", numhl = "LspDiagnosticsSignError"}
-)
-vim.fn.sign_define(
-    "LspDiagnosticsSignWarning",
-    {texthl = "LspDiagnosticsSignWarning", text = "🤯", numhl = "LspDiagnosticsSignWarning"}
-)
-vim.fn.sign_define(
-    "LspDiagnosticsSignHint",
-    {texthl = "LspDiagnosticsSignHint", text = "✨", numhl = "LspDiagnosticsSignHint"}
-)
-vim.fn.sign_define(
-    "LspDiagnosticsSignInformation",
-    {texthl = "LspDiagnosticsSignInformation", text = "🤩", numhl = "LspDiagnosticsSignInformation"}
-)
+local signs = { Error = "😡", Warning = "🤯", Hint = "✨", Information = "🤩" }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 -- LSP config (the mappings used in the default file don't quite work right)
 vim.cmd 'nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>'
@@ -60,13 +49,8 @@ local function documentHighlight(client, bufnr)
         )
     end
 end
--- Setup lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-  --   capabilities = capabilities
-  -- }
 
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   local lsp_config = {
       capabilities = capabilities
   }

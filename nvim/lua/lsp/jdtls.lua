@@ -27,12 +27,12 @@ require'lspconfig'.jdtls.setup{
 
     -- 💀
     -- See `data directory configuration` section in the README
-    '-data', HOME .. '/projects/eclipse-workspace'
+    '-data', JDTLS .. '/workspace'
   },
   filetypes = { "java" },
   init_options = {
       jvm_args = {},
-      workspace = HOME .. "/projects/eclipse-workspace"
+      workspace = JDTLS .. "/workspace"
     },
   single_file_support = true,
 
