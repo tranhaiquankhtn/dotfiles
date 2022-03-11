@@ -54,7 +54,7 @@ then
 fi
 
 # Exa
-PATH=$PATH:$$XDG_BIN_DIR
+PATH=$PATH:$XDG_BIN_DIR
 export EXA_COLORS="hs_err_pid*=37;41;1"
 
 # Vscode
