@@ -1,6 +1,6 @@
 DATA_PATH = vim.fn.stdpath('data')
 CACHE_PATH = vim.fn.stdpath('cache')
-LSP_BIN_PATH = vim.fn.getenv("XDG_DATA_HOME") .. "/npm/bin"
+LSP_SERVERS = vim.fn.getenv("XDG_DATA_HOME") .. "/lsp_servers"
 
 vim.o.completeopt = "menuone,noselect"
 local signs = { Error = "😡", Warning = "🤯", Hint = "✨", Information = "🤩" }

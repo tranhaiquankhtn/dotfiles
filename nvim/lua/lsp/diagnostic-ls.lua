@@ -1,4 +1,6 @@
+local diagnosticls_bin = LSP_SERVERS .. "/node_modules/diagnostic-languageserver/bin/main.js"
 require('lspconfig').diagnosticls.setup{
+  cmd = { diagnosticls_bin, "--stdio" },
   filetypes={'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'},
   init_options = {
     linters = {

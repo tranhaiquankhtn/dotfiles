@@ -19,7 +19,7 @@ plugins=(
     fzf
 )
 
-export ZSH="$XDG_CONFIG_HOME/.oh-my-zsh"
+export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 export HISTFILE="$XDG_CONFIG_HOME/zsh/.zhistory"
 source $ZSH/oh-my-zsh.sh
 
@@ -54,7 +54,7 @@ then
 fi
 
 # Exa
-PATH=$PATH:$XDG_BIN_DIR
+PATH=$PATH:$XDG_BIN_DIR:/opt/homebrew/bin
 export EXA_COLORS="hs_err_pid*=37;41;1"
 
 # Vscode

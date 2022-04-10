@@ -1,7 +1,8 @@
--- local vuels_path = LSP_BIN_PATH .. "/vls"
+local vuels_bin = LSP_SERVERS .. "/vuels/node_modules/vls/bin/vls"
 require'lspconfig'.vuels.setup{
     on_attach = require'lsp'.vuels_on_attach,
     init_options = {
+      cmd = { vuels_bin },
       config = {
         css = {},
         emmet = {},
