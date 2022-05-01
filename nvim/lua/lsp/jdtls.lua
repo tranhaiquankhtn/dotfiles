@@ -1,7 +1,4 @@
-local VIM_DATA_PATH = vim.fn.stdpath('data')
-local JDTLS = VIM_DATA_PATH .. '/lsp_servers/jdtls'
-local HOME = os.getenv('HOME')
-
+local JDTLS = LSP_SERVERS .. '/bin/jdtls'
 require'lspconfig'.jdtls.setup{
   cmd = {
 

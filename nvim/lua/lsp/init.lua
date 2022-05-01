@@ -1,6 +1,6 @@
 DATA_PATH = vim.fn.stdpath('data')
 CACHE_PATH = vim.fn.stdpath('cache')
-LSP_SERVERS = vim.fn.getenv("XDG_DATA_HOME") .. "/lsp_servers"
+LSP_SERVERS = vim.fn.getenv("XDG_DATA_HOME") .. "/nvim/lsp_servers"
 
 vim.o.completeopt = "menuone,noselect"
 local signs = { Error = "😡", Warning = "🤯", Hint = "✨", Information = "🤩" }
@@ -30,6 +30,8 @@ vim.cmd 'autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)'
 vim.cmd 'autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)'
 vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)'
 vim.cmd 'autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)'
+vim.cmd 'autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 1000)'
+vim.cmd 'autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 1000)'
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities

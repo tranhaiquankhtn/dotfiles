@@ -1,8 +1,8 @@
 local vuels_bin = LSP_SERVERS .. "/vuels/node_modules/vls/bin/vls"
 require'lspconfig'.vuels.setup{
+    cmd = { vuels_bin },
     on_attach = require'lsp'.vuels_on_attach,
     init_options = {
-      cmd = { vuels_bin },
       config = {
         css = {},
         emmet = {},
