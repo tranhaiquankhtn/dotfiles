@@ -6,6 +6,7 @@ return require('packer').startup(function()
     use { 'ryanoasis/vim-devicons' }
     -- use 'gruvbox-community/gruvbox'
     use { 'nvim-treesitter/nvim-treesitter' }
+    use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 
     -- Fuzzy finder
     use {

@@ -52,11 +52,12 @@ require('config.starify')
 require('config.galaxyline')
 require('config.gitsigns')
 require('config.telescope')
--- require('config.treesitter')
 require('config.nvim-tree')
 require('config.rust-tools')
 require('config.dart-vim-plugin')
 require('config.nvim-cmp')
+require('config.treesitter')
+require('config.treesitter-textobject')
 
 -- Java
 require('lsp.jdtls')
