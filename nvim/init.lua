@@ -9,14 +9,14 @@ local fn = vim.fn
 local execute = vim.api.nvim_command
 
 -- Auto install packer.nvim if not exists
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  execute 'packadd packer.nvim'
+    fn.system({ 'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path })
+    execute 'packadd packer.nvim'
 end
 vim.cmd 'autocmd BufWritePost plugins.lua PackerCompile' -- Auto compile when there are changes in plugins.lua
 
--- install plugins 
+-- install plugins
 require('plugins')
 
 -- key mappings
@@ -27,7 +27,7 @@ require('mappings')
 require('lsp')
 require('lsp.lua-ls')
 require('lsp.bash-ls')
--- require('lsp.docker-ls')
+require('lsp.docker-ls')
 require('lsp.go-ls')
 require('lsp.html-ls')
 require('lsp.python-ls')

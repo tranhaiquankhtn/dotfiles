@@ -1,21 +1,22 @@
 local flake8 = {
     LintCommand = "flake8 --ignore=E501 --stdin-display-name ${INPUT} -",
     lintStdin = true,
-    lintFormats = {"%f:%l:%c: %m"}
+    lintFormats = { "%f:%l:%c: %m" },
+    lintIgnoreExitCode = true
 }
 
-local autoflake = {
-    formatCommand = "autoflake --remove-all-unused-imports --remove-unused-variables -",
-    formatStdin = true
-}
+-- local autoflake = {
+--     formatCommand = "autoflake --remove-all-unused-imports --remove-unused-variables -",
+--     formatStdin = true
+-- }
+--
+local isort = { formatCommand = "isort --quiet -", formatStdin = true }
+local isort_pre = { formatCommand = "isort --force-single-line-imports --quiet -", formatStdin = true }
+-- local yapf = { formatCommand = "yapf --quiet", formatStdin = true }
+local black = { formatCommand = "black --quiet -", formatStdin = true }
 
-local isort = {formatCommand = "isort --quiet -", formatStdin = true}
-local isort_pre = {formatCommand = "isort --force-single-line-imports --quiet -", formatStdin = true}
-local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
-local black = {formatCommand = "black --quiet -", formatStdin = true}
-
-local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
--- 
+-- local prettier = { formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true }
+--
 -- local eslint = {
 --     lintCommand = "./node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}",
 --     lintIgnoreExitCode = true,
@@ -43,31 +44,31 @@ local shfmt = {
 local shellcheck = {
     lintCommand = './node_modules/bin/shellcheck -f gcc -x',
     lintSource = 'shellcheck',
-    lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
+    lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m' }
 }
 
-local hadolint = {
-    lintCommand = 'hadolint',
-    lintFormats = {'%f:%l %m'}
-}
-
-local yamllint = {
-    lintCommand = 'yamllint -d "{extends: default, rules: {line-length: {max: 120}}}" -f parsable -',
-    lintFormats = true
-}
-
-local luaformat = {
-    formatCommand = "lua-format -i",
-    formatStdin = true
-}
-
-require'lspconfig'.efm.setup {
-    init_options = {documentFormatting = true, codeAction = true},
-    filetypes = {"lua","python", "html", "css", "json", "yaml", "sh", "dockerfile"},
+-- local hadolint = {
+--     lintCommand = 'hadolint',
+--     lintFormats = { '%f:%l %m' }
+-- }
+--
+-- local yamllint = {
+--     lintCommand = 'yamllint -d "{extends: default, rules: {line-length: {max: 120}}}" -f parsable -',
+--     lintFormats = true
+-- }
+--
+-- local luaformat = {
+--     formatCommand = "lua-format -i",
+--     formatStdin = true
+-- }
+--
+require 'lspconfig'.efm.setup {
+    init_options = { documentFormatting = true, codeAction = true },
+    filetypes = { "python", "html", "css", "json", "sh", },
     settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = { ".git/" },
         languages = {
-            lua = { luaformat },
+            -- lua = { luaformat },
             python = {
                 isort_pre,
                 -- autoflake,
@@ -79,8 +80,8 @@ require'lspconfig'.efm.setup {
             html = { html_prettier },
             css = { css_prettier },
             sh = { shellcheck, shfmt },
-            dockerfile = { hadolint },
-            yaml = {yamllint},
+            -- dockerfile = { hadolint },
+            -- yaml = {yamllint},
             -- javascript = {eslint, prettier},
             -- javascriptreact = {eslint, prettier},
             -- typescript = {eslint, prettier},
@@ -88,4 +89,3 @@ require'lspconfig'.efm.setup {
         }
     }
 }
-

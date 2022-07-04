@@ -78,4 +78,6 @@ return require('packer').startup(function()
 
     use { 'mfussenegger/nvim-jdtls' }
 
+    use { 'OmniSharp/omnisharp-vim' }
+
 end)
