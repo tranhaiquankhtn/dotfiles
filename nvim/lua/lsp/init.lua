@@ -9,17 +9,6 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
--- LSP config (the mappings used in the default file don't quite work right)
--- vim.cmd 'nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>'
--- vim.cmd 'nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>'
--- vim.cmd 'nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>'
--- vim.cmd 'nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>'
--- vim.cmd 'nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>'
--- vim.cmd 'nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>'
--- vim.cmd 'nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>'
--- vim.cmd 'nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>'
---
-
 -- autoformat
 -- vim.cmd 'autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()'
 vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'

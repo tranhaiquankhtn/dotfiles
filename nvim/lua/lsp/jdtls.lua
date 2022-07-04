@@ -1,37 +1,3 @@
-local JDTLS = LSP_SERVERS .. '/bin/jdtls'
-require'lspconfig'.jdtls.setup{
-  cmd = {
-
-    -- 💀
-    '/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java', -- or '/path/to/java11_or_newer/bin/java'
-    '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-    '-Dosgi.bundles.defaultStartLevel=4',
-    '-Declipse.product=org.eclipse.jdt.ls.core.product',
-    '-Dlog.protocol=true',
-    '-Dlog.level=ALL',
-    '-Xms1g',
-    '--add-modules=ALL-SYSTEM',
-    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
-    -- 💀
-    '-jar', JDTLS .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
-
-
-    -- 💀
-    '-configuration', JDTLS .. '/config_mac',
-
-
-    -- 💀
-    -- See `data directory configuration` section in the README
-    '-data', JDTLS .. '/workspace'
-  },
-  filetypes = { "java" },
-  init_options = {
-      jvm_args = {},
-      workspace = JDTLS .. "/workspace"
-    },
-  single_file_support = true,
-
+require 'lspconfig'.jdtls.setup {
+    on_attach = require 'lsp'.common_on_attach,
 }
-
