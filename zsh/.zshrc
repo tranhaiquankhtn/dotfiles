@@ -90,7 +90,8 @@ export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 
 
 # Gradle
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle-7.4.2
+PATH=$GRADLE_USER_HOME/bin:$PATH
 
 # NPM&Yarn
 export NODE_HOME=$HOME/.local/share/node
@@ -107,6 +108,6 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 alias vim='nvim'
 alias ssh="ssh $SSH_CONFIG $SSH_ID "
 alias ssh-copy-id="ssh-copy-id $SSH_ID"
-alias ls="exa"
-alias "ls -l"="exa -l"
-alias ll="exa -al"
+alias ls="$HOME/.bin/lsd"
+alias "ls -l"="$HOME/.bin/lsd -l"
+alias ll="$HOME/.bin/lsd -al"
