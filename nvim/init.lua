@@ -39,6 +39,7 @@ require('lsp.dart-ls')
 require('lsp.rust-ls')
 require('lsp.toml-ls')
 require('lsp.yaml-ls')
+require('lsp.lemminx')
 
 
 -- themes
