@@ -1,10 +1,9 @@
 local VIM_DATA_PATH = vim.fn.stdpath('data')
-local jdtls_dir = VIM_DATA_PATH .. '/lsp_servers/jdtls'
+local jdtls_dir = LSP_SERVERS .. '/../packages/jdtls'
 
 local config = {
     cmd = {
-        -- 'java',
-        '/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home/bin/java', -- or '/path/to/java11_or_newer/bin/java'
+        'java',
         '-Declipse.application=org.eclipse.jdt.ls.core.id1',
         '-Dosgi.bundles.defaultStartLevel=4',
         '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -23,6 +22,9 @@ local config = {
     root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),
     settings = {
         java = {
+            signatureHelp = {enabled = true},
+            import = {enabled = true},
+            rename = {enabled = true}
         }
     },
     init_options = {
