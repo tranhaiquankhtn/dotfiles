@@ -11,22 +11,23 @@ end
 
 -- autoformat
 -- vim.cmd 'autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()'
-vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.vue lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.yml lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.toml lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.dockerfile lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)'
-vim.cmd 'autocmd BufWritePre *.xml lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.vue lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.yml lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.toml lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.dockerfile lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)'
+-- vim.cmd 'autocmd BufWritePre *.xml lua vim.lsp.buf.formatting_sync(nil, 1000)'
 -- vim.cmd 'autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 1000)'
 -- vim.cmd 'autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 1000)'
+vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)'
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities
@@ -88,11 +89,11 @@ function lsp_config.tsserver_on_attach(client, bufnr)
     client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-function lsp_config.vuels_on_attach(client, bufnr)
+function lsp_config.yaml_on_attach(client, bufnr)
     lsp_config.common_on_attach(client, bufnr)
-    -- client.resolved_capabilities.document_formatting = false
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
+    client.server_capabilities.document_formatting = true
+    client.server_capabilities.documentFormattingProvider = true
+    client.server_capabilities.documentRangeFormattingProvider = true
 end
 
 return lsp_config

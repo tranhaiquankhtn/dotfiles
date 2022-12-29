@@ -4,7 +4,7 @@ return require('packer').startup(function()
     -- Color scheme
     use { 'sainnhe/gruvbox-material' }
     use { 'ryanoasis/vim-devicons' }
-    -- use 'gruvbox-community/gruvbox'
+
     use { 'nvim-treesitter/nvim-treesitter' }
     use { 'nvim-treesitter/nvim-treesitter-textobjects' }
 

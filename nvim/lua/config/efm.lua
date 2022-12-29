@@ -5,27 +5,15 @@ local flake8 = {
     lintIgnoreExitCode = true
 }
 
--- local autoflake = {
---     formatCommand = "autoflake --remove-all-unused-imports --remove-unused-variables -",
---     formatStdin = true
--- }
---
 local isort = { formatCommand = "isort --quiet -", formatStdin = true }
 local isort_pre = { formatCommand = "isort --force-single-line-imports --quiet -", formatStdin = true }
 -- local yapf = { formatCommand = "yapf --quiet", formatStdin = true }
 local black = { formatCommand = "black --quiet -", formatStdin = true }
 
--- local prettier = { formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true }
---
--- local eslint = {
---     lintCommand = "./node_modules/.bin/eslint_d -f unix --stdin --stdin-filename ${INPUT}",
---     lintIgnoreExitCode = true,
---     lintStdin = true,
---     lintFormats = {"%f:%l:%c: %m"},
---     formatCommand= "./node_modules/.bin/eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
---     formatStdin = true
--- }
-
+local json_prettier = {
+    formatCommand = 'prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser json',
+    formatStdin = true
+}
 
 local html_prettier = {
     formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser html',
@@ -33,7 +21,8 @@ local html_prettier = {
 }
 
 local css_prettier = {
-    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser css'
+    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser css',
+    formatStdin = true
 }
 
 local shfmt = {
@@ -47,24 +36,19 @@ local shellcheck = {
     lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m' }
 }
 
--- local hadolint = {
---     lintCommand = 'hadolint',
---     lintFormats = { '%f:%l %m' }
--- }
---
--- local yamllint = {
---     lintCommand = 'yamllint -d "{extends: default, rules: {line-length: {max: 120}}}" -f parsable -',
---     lintFormats = true
--- }
---
--- local luaformat = {
---     formatCommand = "lua-format -i",
---     formatStdin = true
--- }
---
+local yamlfmt = {
+    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser yaml',
+    formatStdin = true
+}
+
+local yamllint = {
+    lintCommand = 'yamllint -d "{extends: default, rules: {line-length: {max: 120}}}" -f parsable -',
+    lintFormats = true
+}
+
 require 'lspconfig'.efm.setup {
     init_options = { documentFormatting = true, codeAction = true },
-    filetypes = { "python", "html", "css", "json", "sh", },
+    filetypes = { "python", "html", "css", "json", "sh" },
     settings = {
         rootMarkers = { ".git/" },
         languages = {
@@ -79,9 +63,10 @@ require 'lspconfig'.efm.setup {
             html = { html_prettier },
             css = { css_prettier },
             sh = { shellcheck, shfmt },
+            json = { json_prettier },
+            -- yaml = { yamllint },
 
             -- dockerfile = { hadolint },
-            -- yaml = {yamllint},
             -- javascript = {eslint, prettier},
             -- javascriptreact = {eslint, prettier},
             -- typescript = {eslint, prettier},
