@@ -7,7 +7,6 @@ local flake8 = {
 
 local isort = { formatCommand = "isort --quiet -", formatStdin = true }
 local isort_pre = { formatCommand = "isort --force-single-line-imports --quiet -", formatStdin = true }
--- local yapf = { formatCommand = "yapf --quiet", formatStdin = true }
 local black = { formatCommand = "black --quiet -", formatStdin = true }
 
 local json_prettier = {
@@ -16,12 +15,12 @@ local json_prettier = {
 }
 
 local html_prettier = {
-    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser html',
+    formatCommand = 'prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser html',
     formatStdin = true
 }
 
 local css_prettier = {
-    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser css',
+    formatCommand = 'prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser css',
     formatStdin = true
 }
 
@@ -31,13 +30,13 @@ local shfmt = {
 }
 
 local shellcheck = {
-    lintCommand = './node_modules/bin/shellcheck -f gcc -x',
+    lintCommand = 'shellcheck -f gcc -x',
     lintSource = 'shellcheck',
     lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m' }
 }
 
 local yamlfmt = {
-    formatCommand = './node_modules/.bin/prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser yaml',
+    formatCommand = 'yamlfmt ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser yaml',
     formatStdin = true
 }
 
@@ -46,20 +45,27 @@ local yamllint = {
     lintFormats = true
 }
 
+local ruff = {
+    lintCommand = 'ruff --force-exclude',
+    lintStdin = true,
+    lintIgnoreExitCode = true
+}
+
 require 'lspconfig'.efm.setup {
     init_options = { documentFormatting = true, codeAction = true },
-    filetypes = { "python", "html", "css", "json", "sh" },
+    filetypes = { "html", "css", "json", "sh" },
     settings = {
         rootMarkers = { ".git/" },
         languages = {
             -- vue = { prettier },
-            python = {
-                isort_pre,
-                -- autoflake,
-                flake8,
-                black,
-                isort,
-            },
+            -- python = {
+            --     isort_pre,
+            --     -- autoflake,
+            --     -- flake8,
+            --     -- ruff,
+            --     black,
+            --     isort,
+            -- },
             html = { html_prettier },
             css = { css_prettier },
             sh = { shellcheck, shfmt },
