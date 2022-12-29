@@ -11,7 +11,7 @@ return require('packer').startup(function()
     -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } }
     }
 
     -- nvim-tree
@@ -25,7 +25,7 @@ return require('packer').startup(function()
     use { 'terrortylor/nvim-comment' }
 
     -- lsp config
-    use { 'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer' }
+    use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' }
 
     -- For java
     -- use { 'hrsh7th/nvim-compe' }
@@ -38,7 +38,7 @@ return require('packer').startup(function()
 
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }
-    
+
     -- Fugitive for Git
     use { 'tpope/vim-fugitive' }
 
@@ -52,7 +52,7 @@ return require('packer').startup(function()
     use {
         'glepnir/galaxyline.nvim',
         branch = 'main',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use { 'voldikss/vim-floaterm' }
     -- use { 'romgrk/barbar.nvim', opt = true}
@@ -62,16 +62,16 @@ return require('packer').startup(function()
         requires = { 'nvim-lua/plenary.nvim' }
     }
 
-    use {'bling/vim-bufferline'}
+    use { 'bling/vim-bufferline' }
 
     use { 'mbbill/undotree' }
 
-    use { 'lukas-reineke/indent-blankline.nvim'}
+    use { 'lukas-reineke/indent-blankline.nvim' }
 
     -- flutter
-    use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
-    use {'dart-lang/dart-vim-plugin'}
-    use {'thosakwe/vim-flutter'}
+    use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { 'dart-lang/dart-vim-plugin' }
+    use { 'thosakwe/vim-flutter' }
 
     -- rust
     use { 'simrat39/rust-tools.nvim' }

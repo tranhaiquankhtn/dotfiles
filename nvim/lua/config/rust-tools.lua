@@ -7,11 +7,6 @@ local opts = {
         -- default: true
         autoSetHints = true,
 
-        -- whether to show hover actions inside the hover window
-        -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-        -- default: true
-        hover_with_actions = true,
-
         -- These apply to the default RustRunnables command
         runnables = {
             -- whether to use telescope for selection menu or not
@@ -52,10 +47,10 @@ local opts = {
             -- the border that is used for the hover window
             -- see vim.api.nvim_open_win()
             border = {
-                {"╭", "FloatBorder"}, {"─", "FloatBorder"},
-                {"╮", "FloatBorder"}, {"│", "FloatBorder"},
-                {"╯", "FloatBorder"}, {"─", "FloatBorder"},
-                {"╰", "FloatBorder"}, {"│", "FloatBorder"}
+                { "╭", "FloatBorder" }, { "─", "FloatBorder" },
+                { "╮", "FloatBorder" }, { "│", "FloatBorder" },
+                { "╯", "FloatBorder" }, { "─", "FloatBorder" },
+                { "╰", "FloatBorder" }, { "│", "FloatBorder" }
             },
 
             -- whether the hover action window gets automatically focused

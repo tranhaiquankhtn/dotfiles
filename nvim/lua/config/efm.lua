@@ -68,7 +68,7 @@ require 'lspconfig'.efm.setup {
     settings = {
         rootMarkers = { ".git/" },
         languages = {
-            -- lua = { luaformat },
+            -- vue = { prettier },
             python = {
                 isort_pre,
                 -- autoflake,
@@ -76,10 +76,10 @@ require 'lspconfig'.efm.setup {
                 black,
                 isort,
             },
-            -- vue = { prettier },
             html = { html_prettier },
             css = { css_prettier },
             sh = { shellcheck, shfmt },
+
             -- dockerfile = { hadolint },
             -- yaml = {yamllint},
             -- javascript = {eslint, prettier},

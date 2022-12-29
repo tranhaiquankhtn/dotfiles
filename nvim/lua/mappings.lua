@@ -58,9 +58,10 @@ utils.map('n', 'Y', 'y$')
 
 
 -- JDTLS mappings
-utils.map("n", "<leader>di", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
-utils.map("n", "<leader>dt", "<Cmd>lua require'jdtls'.test_class()<CR>")
-utils.map("n", "<leader>dn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>")
-utils.map("v", "<leader>de", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>")
-utils.map("n", "<leader>de", "<Cmd>lua require('jdtls').extract_variable()<CR>")
-utils.map("v", "<leader>dm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>")
+utils.map("n", "<Leader>coa", "<Cmd>lua require'jdtls'.organize_imports()<CR>")
+utils.map("n", "<Leader>dt", "<Cmd>lua require'jdtls'.test_class()<CR>")
+utils.map("n", "<Leader>dn", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>")
+utils.map("v", "<Leader>crv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>")
+utils.map("n", "<Leader>crv", "<Cmd>lua require('jdtls').extract_variable()<CR>")
+utils.map("v", "<Leader>crm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>")
+utils.map("n", "<Leader>crc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>")

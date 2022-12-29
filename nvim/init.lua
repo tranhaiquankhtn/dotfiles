@@ -23,6 +23,27 @@ require('plugins')
 require('mappings')
 
 
+
+
+-- themes
+require('themes')
+
+-- Config for the plugins
+require('config.mason')
+require('config.efm')
+-- require('config.compe')
+require('config.neocomment')
+require('config.starify')
+require('config.galaxyline')
+require('config.gitsigns')
+require('config.telescope')
+require('config.nvim-tree')
+require('config.rust-tools')
+require('config.dart-vim-plugin')
+require('config.nvim-cmp')
+require('config.treesitter')
+require('config.treesitter-textobject')
+
 -- Setup Lua language server using submodule
 require('lsp')
 require('lsp.lua-ls')
@@ -39,26 +60,8 @@ require('lsp.dart-ls')
 require('lsp.rust-ls')
 require('lsp.toml-ls')
 require('lsp.yaml-ls')
+require('lsp.json-ls')
 require('lsp.lemminx')
-
-
--- themes
-require('themes')
-
--- Config for the plugins
-require('config.efm')
--- require('config.compe')
-require('config.neocomment')
-require('config.starify')
-require('config.galaxyline')
-require('config.gitsigns')
-require('config.telescope')
-require('config.nvim-tree')
-require('config.rust-tools')
-require('config.dart-vim-plugin')
-require('config.nvim-cmp')
-require('config.treesitter')
-require('config.treesitter-textobject')
-
 -- Java
 require('lsp.jdtls')
+require('config.nvim-jdtls')

@@ -1,8 +1,5 @@
-local sumneko_root_path = LSP_SERVERS .. "/sumneko_lua"
-local sumneko_binary = sumneko_root_path .. "/extension/server/bin/lua-language-server"
-
 require 'lspconfig'.sumneko_lua.setup {
-    cmd = { sumneko_binary },
+    cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
     single_file_support = true,
     -- log_level = vim.lsp.protocol.MessageType.Warning,

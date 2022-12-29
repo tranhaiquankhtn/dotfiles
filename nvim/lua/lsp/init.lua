@@ -1,6 +1,6 @@
 DATA_PATH = vim.fn.stdpath('data')
 CACHE_PATH = vim.fn.stdpath('cache')
-LSP_SERVERS = vim.fn.getenv("XDG_DATA_HOME") .. "/nvim/lsp_servers"
+LSP_SERVERS = vim.fn.getenv("XDG_DATA_HOME") .. "/nvim/mason/bin"
 
 vim.o.completeopt = "menuone,noselect"
 local signs = { Error = "😡", Warning = "🤯", Hint = "✨", Information = "🤩" }
@@ -72,7 +72,6 @@ local on_attach = function(client, bufnr)
 
 end
 
-require('nvim-lsp-installer').setup {}
 local lsp_config = {
     capabilities = require("cmp_nvim_lsp").default_capabilities()
 }
