@@ -16,7 +16,7 @@ local config = {
 
         '-jar', jdtls_dir .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         '-configuration', jdtls_dir .. '/config_mac',
-        '-data', '~/projects/eclipse-workspace'
+        '-data', jdtls_dir .. '/workspace'
     },
 
     root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew' }),

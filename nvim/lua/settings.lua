@@ -22,7 +22,7 @@ utils.opt('o', 'encoding', 'UTF-8')
 utils.opt('o', 'fileencoding', 'utf-8')
 utils.opt('o', 'incsearch', true)
 utils.opt('o', 'textwidth', 80)
-utils.opt('o', 'clipboard','unnamed,unnamedplus')
+utils.opt('o', 'clipboard', 'unnamed,unnamedplus')
 utils.opt('o', 'splitbelow', true)
 utils.opt('o', 'splitright', true)
 utils.opt('o', 'cmdheight', 2)
@@ -44,3 +44,10 @@ utils.opt('o', 'listchars', 'tab:>-,trail:-,eol:↵')
 
 -- Highlight on yank
 cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
+
+-- Autoreload
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+    command = "if mode() != 'c' | checktime | endif",
+    pattern = { "*" },
+})
