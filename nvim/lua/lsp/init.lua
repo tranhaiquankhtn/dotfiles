@@ -3,30 +3,13 @@ CACHE_PATH = vim.fn.stdpath('cache')
 LSP_SERVERS = vim.fn.getenv("XDG_DATA_HOME") .. "/nvim/mason/bin"
 
 vim.o.completeopt = "menuone,noselect"
-local signs = { Error = "😡", Warning = "🤯", Hint = "✨", Information = "🤩" }
+local signs = { Error = "😡", Warn = "🤯", Hint = "✨", Info = "🤩" }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
 -- autoformat
--- vim.cmd 'autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()'
--- vim.cmd 'autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.vue lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.sh lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.yml lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.toml lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.dockerfile lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.java lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.xml lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.html lua vim.lsp.buf.formatting_sync(nil, 1000)'
--- vim.cmd 'autocmd BufWritePre *.css lua vim.lsp.buf.formatting_sync(nil, 1000)'
 vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)'
 
 local function documentHighlight(client, bufnr)
