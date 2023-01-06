@@ -10,7 +10,7 @@ for type, icon in pairs(signs) do
 end
 
 -- autoformat
-vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 2000)'
+vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format(nil, 2000)'
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities
