@@ -9,11 +9,7 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
--- autoformat
-vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format(nil, 2000)'
-
-local function documentHighlight(client, bufnr)
-    -- Set autocommands conditional on server_capabilities
+local function document_highlight(client, bufnr)
     if client.server_capabilities.document_highlight then
         vim.api.nvim_exec(
             [[
@@ -31,8 +27,23 @@ local function documentHighlight(client, bufnr)
     end
 end
 
+local function format_document(client, bufnr)
+    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ bufnr = bufnr })
+                -- lsp_formatting(bufnr)
+            end,
+        })
+    end
+end
+
+
 local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -45,9 +56,6 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
@@ -56,27 +64,29 @@ local on_attach = function(client, bufnr)
 
 end
 
+
+
+
 local lsp_config = {
     capabilities = require("cmp_nvim_lsp").default_capabilities()
 }
 
 function lsp_config.common_on_attach(client, bufnr)
-    documentHighlight(client, bufnr)
+    document_highlight(client, bufnr)
+    format_document(client, bufnr)
     on_attach(client, bufnr)
 end
 
 function lsp_config.tsserver_on_attach(client, bufnr)
     lsp_config.common_on_attach(client, bufnr)
-    -- client.resolved_capabilities.document_formatting = false
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
 end
 
-function lsp_config.yaml_on_attach(client, bufnr)
+function lsp_config.vue_on_attach(client, bufnr)
     lsp_config.common_on_attach(client, bufnr)
-    client.server_capabilities.document_formatting = true
-    client.server_capabilities.documentFormattingProvider = true
-    client.server_capabilities.documentRangeFormattingProvider = true
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
 end
 
 return lsp_config

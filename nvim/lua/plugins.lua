@@ -25,7 +25,8 @@ return require('packer').startup(function()
     use { 'terrortylor/nvim-comment' }
 
     -- lsp config
-    use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim' }
+    use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'jayp0521/mason-null-ls.nvim',
+        'jose-elias-alvarez/null-ls.nvim' }
 
     -- For java
     -- use { 'hrsh7th/nvim-compe' }

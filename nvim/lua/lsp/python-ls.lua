@@ -12,21 +12,22 @@ require 'lspconfig'.pylsp.setup {
                 pycodestyle = { enabled = false },
                 flake8 = {
                     enabled = true,
-                    ignore = { ".git", "__pycache__", "__init__.py", ".mypy_cache", ".pytest_cache" },
+                    ignore = {},
                     maxLineLength = 88,
                     maxComplexity = 10
                 },
                 mypy = { enabled = true },
-                pyls_isort = { enabled = true },
+                black = { enabled = false, cache_config = true, line_length = 88 },
+                -- pyls_isort = { enabled = true, profile = "black" },
+                isort = { enabled = false, profile = "black" },
                 ruff = { enabled = true },
-                black = { enabled = true },
                 yapf = { enabled = false },
                 pylint = { enabled = false },
                 pydocstyle = { enabled = false },
                 mccabe = { enabled = false },
                 preload = { enabled = false },
                 rope_completion = { enabled = false },
-                rope_autoimport = { enabled = true, memory = true },
+                rope_autoimport = { enabled = false },
             }
         }
     }
