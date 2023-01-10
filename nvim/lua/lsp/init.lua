@@ -65,8 +65,6 @@ local on_attach = function(client, bufnr)
 end
 
 
-
-
 local lsp_config = {
     capabilities = require("cmp_nvim_lsp").default_capabilities()
 }

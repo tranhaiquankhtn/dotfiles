@@ -14,6 +14,7 @@ local sources = {
   nls.builtins.formatting.rustfmt,
   nls.builtins.formatting.sql_formatter,
   nls.builtins.formatting.xmllint,
+  nls.builtins.formatting.google_java_format,
 
   -- diagnostics
   nls.builtins.diagnostics.write_good,
@@ -21,13 +22,14 @@ local sources = {
   nls.builtins.diagnostics.eslint_d,
   nls.builtins.diagnostics.flake8,
   nls.builtins.diagnostics.hadolint,
-  -- b.diagnostics.mypy,
+  nls.builtins.diagnostics.mypy,
   nls.builtins.diagnostics.ruff,
   nls.builtins.diagnostics.shellcheck,
   nls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" }}),
   nls.builtins.diagnostics.tsc,
   nls.builtins.diagnostics.yamllint,
   nls.builtins.diagnostics.zsh,
+  nls.builtins.dotenv_linter,
 
   -- code actions
   nls.builtins.code_actions.eslint_d,
