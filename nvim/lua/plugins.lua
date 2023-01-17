@@ -28,14 +28,16 @@ return require('packer').startup(function()
     use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'jayp0521/mason-null-ls.nvim',
         'jose-elias-alvarez/null-ls.nvim' }
 
-    -- For java
-    -- use { 'hrsh7th/nvim-compe' }
-    use { 'hrsh7th/vim-vsnip' }
+    -- For autocomple
+    use { 'hrsh7th/nvim-cmp' }
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-cmdline' }
-    use { 'hrsh7th/nvim-cmp' }
+    use { 'hrsh7th/cmp-nvim-lua' }
+    use { 'L3MON4D3/LuaSnip' }
+    use { 'rafamadriz/friendly-snippets' }
+    use { 'saadparwaiz1/cmp_luasnip' }
 
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }
