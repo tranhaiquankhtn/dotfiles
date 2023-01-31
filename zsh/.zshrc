@@ -78,6 +78,10 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 PATH=$PATH:$CARGO_HOME/bin
 
+# Neovim
+export NVIM_HOME=$XDG_DATA_HOME/nvim
+PATH=$PATH:$NVIM_HOME/bin
+
 
 # MITM proxy
 alias mitmproxy="mitmproxy --set confdir=$XDG_CONFIG_HOME/mitmproxy"
