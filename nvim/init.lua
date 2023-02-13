@@ -57,5 +57,5 @@ require('lsp.vue-ls')
 require('lsp.dart-ls')
 require('lsp.rust-ls')
 -- Java
-require('lsp.jdtls')
-require('config.nvim-jdtls')
+-- require('lsp.jdtls')
+-- require('config.nvim-jdtls')

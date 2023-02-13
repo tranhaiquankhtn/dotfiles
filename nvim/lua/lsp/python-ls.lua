@@ -13,11 +13,11 @@ require 'lspconfig'.pylsp.setup {
                 flake8 = {
                     enabled = true,
                     ignore = {},
-                    maxLineLength = 88,
+                    maxLineLength = 100,
                     maxComplexity = 10
                 },
                 mypy = { enabled = true },
-                black = { enabled = false, cache_config = true, line_length = 88 },
+                black = { enabled = false, cache_config = true, line_length = 100 },
                 -- pyls_isort = { enabled = true, profile = "black" },
                 isort = { enabled = false, profile = "black" },
                 ruff = { enabled = true },
