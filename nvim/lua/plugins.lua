@@ -26,7 +26,9 @@ return require('packer').startup(function()
 
     -- lsp config
     use { 'neovim/nvim-lspconfig', 'williamboman/mason.nvim', 'jayp0521/mason-null-ls.nvim',
-        'jose-elias-alvarez/null-ls.nvim' }
+        'jose-elias-alvarez/null-ls.nvim',
+        'WhoIsSethDaniel/mason-tool-installer.nvim'
+    }
 
     -- For autocomple
     use { 'hrsh7th/nvim-cmp' }
@@ -35,9 +37,14 @@ return require('packer').startup(function()
     use { 'hrsh7th/cmp-path' }
     use { 'hrsh7th/cmp-cmdline' }
     use { 'hrsh7th/cmp-nvim-lua' }
-    use { 'L3MON4D3/LuaSnip' }
     use { 'rafamadriz/friendly-snippets' }
     use { 'saadparwaiz1/cmp_luasnip' }
+    use { 'L3MON4D3/LuaSnip',
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+            require("luasnip.loaders.from_snipmate").lazy_load()
+        end,
+    }
 
     -- Vim dispatch
     use { 'tpope/vim-dispatch' }

@@ -1,4 +1,4 @@
-require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
     single_file_support = true,

@@ -1,0 +1,28 @@
+require('mason-tool-installer').setup {
+    ensure_installed = {
+        'typescript-language-server',
+        'autoflake',
+        'bash-language-server',
+        'black',
+        'dockerfile-language-server',
+        'eslint_d',
+        'fixjson',
+        'flake8',
+        'gopls',
+        'isort',
+        'jdtls',
+        'lua-language-server',
+        'markdownlint',
+        'mypy',
+        'prettierd',
+        'python-lsp-server',
+        'ruff',
+        'ruff-lsp',
+        'rust-analyzer',
+        'taplo',
+        'vue-language-server',
+        'write-good',
+        'yamlfmt',
+        'yamllint',
+    }
+}

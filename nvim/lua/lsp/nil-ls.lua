@@ -29,7 +29,7 @@ local sources = {
     nls.builtins.diagnostics.tsc,
     nls.builtins.diagnostics.yamllint,
     nls.builtins.diagnostics.zsh,
-    nls.builtins.dotenv_linter,
+    -- nls.builtins.dotenv_linter,
 
     -- code actions
     nls.builtins.code_actions.eslint_d,
