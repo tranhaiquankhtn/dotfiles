@@ -59,6 +59,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>f',
                    function() vim.lsp.buf.format {async = false} end, bufopts)
+
+    -- formatting
+    vim.cmd(
+        'autocmd BufWritePre <buffer> lua vim.lsp.buf.format({ async = false })')
 end
 
 local lsp_config = {
@@ -67,8 +71,8 @@ local lsp_config = {
 
 function lsp_config.common_on_attach(client, bufnr)
     document_highlight(client, bufnr)
-    format_document(client, bufnr)
     on_attach(client, bufnr)
+    -- format_document(client, bufnr)
 end
 
 function lsp_config.on_attach_no_formatting(client, bufnr)
