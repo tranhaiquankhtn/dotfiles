@@ -1,11 +1,7 @@
-require 'lspconfig'.tsserver.setup {
-    on_attach = require 'lsp'.tsserver_on_attach,
+require'lspconfig'.tsserver.setup {
+    on_attach = require'lsp'.on_attach_no_formatting,
     file_types = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx"
+        "javascript", "javascriptreact", "javascript.jsx", "typescript",
+        "typescriptreact", "typescript.tsx"
     }
 }
