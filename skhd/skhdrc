@@ -1,12 +1,18 @@
-# navigate between windows
+# window navigation
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - h : yabai -m window --focus west
 alt - l : yabai -m window --focus east
 
+# swap windows
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - h : yabai -m window --swap west
+shift + alt - l : yabai -m window --swap east
+
 # change focus between external displays (left and right)
-# alt - s: yabai -m display --focus west
-# alt - g: yabai -m display --focus east
+alt - n: yabai -m display --focus west
+alt - p: yabai -m display --focus east
 
 # rotate layout clockwise
 shift + alt - r : yabai -m space --rotate 270
@@ -26,32 +32,27 @@ shift + alt - f : yabai -m window --toggle zoom-fullscreen
 # re-balance windows
 shift + alt - 0 : yabai -m space --balance
 
-# swap windows
-shift + alt - j : yabai -m window --swap south
-shift + alt - k : yabai -m window --swap north
-shift + alt - h : yabai -m window --swap west
-shift + alt - l : yabai -m window --swap east
 
 # move window and split
-window + shift - j : yabai -m window --swap south
-window + shift - k : yabai -m window --swap north
-window + shift - h : yabai -m window --swap west
-window + shift - l : yabai -m window --swap east
+cmd + shift - j : yabai -m window --swap south
+cmd + shift - k : yabai -m window --swap north
+cmd + shift - h : yabai -m window --swap west
+cmd + shift - l : yabai -m window --swap east
 
 # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-shift + alt - n : yabai -m space --create && \
+cmd + shift - n : yabai -m space --create && \
                    index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
                    yabai -m window --space "${index}" && \
                    yabai -m space --focus "${index}"
 
 # fast focus desktop
-# alt - tab : yabai -m space --focus recent
-# cmd + alt - z : chunkc tiling::desktop --focus prev
-# cmd + alt - c : chunkc tiling::desktop --focus next
-# cmd + alt - 1 : chunkc tiling::desktop --focus 1
-# cmd + alt - 2 : chunkc tiling::desktop --focus 2
-# cmd + alt - 3 : chunkc tiling::desktop --focus 3
-# cmd + alt - 4 : chunkc tiling::desktop --focus 4
+alt - tab : yabai -m space --focus recent
+cmd + alt - z : chunkc tiling::desktop --focus prev
+cmd + alt - c : chunkc tiling::desktop --focus next
+cmd + alt - 1 : chunkc tiling::desktop --focus 1
+cmd + alt - 2 : chunkc tiling::desktop --focus 2
+cmd + alt - 3 : chunkc tiling::desktop --focus 3
+cmd + alt - 4 : chunkc tiling::desktop --focus 4
 
 # send window to monitor and follow focus
 shift + alt - n : yabai -m window --display next; yabai -m display --focus next
