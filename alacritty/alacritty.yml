@@ -1,12 +1,12 @@
-env:
-  TERM: xterm-256color
+import:
+ - ~/.config/alacritty/themes/themes/falcon.yaml
 window:
   decorations: buttonless
   startup_mode: Maximized
   padding:
     x: 5
     y: 5
-  opacity: 1.0
+  opacity: 0.7
   dynamic_title: true
 scrolling:
   history: 20000
@@ -28,31 +28,6 @@ font:
     family: FiraCode Nerd Font Mono
   bold_italic:
     family: FiraCode Nerd Font Mono
-colors:
-  primary:
-    background: "0x303030"
-    foreground: "0xfbe3d5"
-  cursor:
-    text: "0x000000"
-    cursor: "0xffffff"
-  normal:
-    black: "0x282828"
-    red: "0xcc241d"
-    green: "0x98971a"
-    yellow: "0xd79921"
-    blue: "0x80C7EB"
-    magenta: "0xb16286"
-    cyan: "0x68986a"
-    white: "0xa89984"
-  bright:
-    black: "0x1d2021"
-    red: "0xfb4934"
-    green: "0xb8bb26"
-    yellow: "0xfabd2f"
-    blue: "0x87AFAF"
-    magenta: "0xd3869b"
-    cyan: "0x8ec07c"
-    white: "0xebdbb2"
 visual_bell:
   animation: EaseOutExpo
   duration: 0
@@ -66,10 +41,6 @@ live_config_reload: true
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
-cursor:
-  style:
-    shape: Block
-    blinking: On
 shell:
   program: /bin/zsh
   args:

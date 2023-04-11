@@ -5,7 +5,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_RUNTIME_DIR=$HOME/.run
 export XDG_BIN_DIR=$HOME/.bin
 
-# FZF 
+# FZF
 export FZF_BASE="$XDG_CONFIG_HOME/fzf"
 export FZF_DEFAULT_OPTS="--extended"
 [ -f $FZF_BASE/fzf.zsh ] && source $FZF_BASE/fzf.zsh
@@ -32,7 +32,7 @@ export VIMINFOFILE="$XDG_CACHE_HOME/vim/viminfo"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export ARCHFLAGS="-arch x86_64"
-export TERM=xterm-256color
+export TERM=tmux-256color
 
 
 # git
