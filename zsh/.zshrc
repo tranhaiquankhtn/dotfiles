@@ -4,6 +4,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_RUNTIME_DIR=$HOME/.run
 export XDG_BIN_DIR=$HOME/.bin
+export XDG_STATE_HOME=$HOME/.local/state
 
 # FZF
 export FZF_BASE="$XDG_CONFIG_HOME/fzf"
@@ -23,6 +24,8 @@ export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 export HISTFILE="$XDG_CONFIG_HOME/zsh/.zhistory"
 source $ZSH/oh-my-zsh.sh
 
+# Xorg-xauth
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 
 # Neovim
 export VIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
@@ -32,8 +35,10 @@ export VIMINFOFILE="$XDG_CACHE_HOME/vim/viminfo"
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
 export ARCHFLAGS="-arch x86_64"
-export TERM=tmux-256color
-
+export TERM=xterm-256color
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export TERMINFO_DIRS=$TERMINFO_DIRS:$XDG_DATA_HOME/terminfo
+export DISABLE_AUTO_TITLE="false"
 
 # git
 export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
@@ -41,6 +46,10 @@ export GIT_CONFIG="$XDG_CONFIG_HOME/git/config"
 # less
 export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+
+# mysql
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+
 
 # ssh config
 if [ -s "${XDG_CONFIG_HOME}/ssh/config" ]
@@ -82,6 +91,11 @@ PATH=$PATH:$CARGO_HOME/bin
 export NVIM_HOME=$XDG_DATA_HOME/nvim
 PATH=$PATH:$NVIM_HOME/bin
 
+# Postgres
+export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
+export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 
 # MITM proxy
 alias mitmproxy="mitmproxy --set confdir=$XDG_CONFIG_HOME/mitmproxy"
@@ -98,13 +112,15 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle-7.4.2
 PATH=$GRADLE_USER_HOME/bin:$PATH
 
 # NPM&Yarn
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NODE_HOME=$HOME/.local/share/node
 PATH=$NODE_HOME/bin:$PATH
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-# alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/yarnrc"'
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/yarnrc"'
 
 # for pyenv compile
+export PYENV_ROOT=$XDG_DATA_HOME/pyenv
 export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 
@@ -115,3 +131,7 @@ alias ssh-copy-id="ssh-copy-id $SSH_ID"
 alias ls="$HOME/.bin/lsd"
 alias "ls -l"="$HOME/.bin/lsd -l"
 alias ll="$HOME/.bin/lsd -al"
+#
+# wget
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
