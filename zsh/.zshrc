@@ -117,7 +117,6 @@ export NODE_HOME=$HOME/.local/share/node
 PATH=$NODE_HOME/bin:$PATH
 
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/yarnrc"'
 
 # for pyenv compile
 export PYENV_ROOT=$XDG_DATA_HOME/pyenv
