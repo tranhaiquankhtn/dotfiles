@@ -47,7 +47,7 @@ shell:
     - --login
 working_directory: None
 key_bindings:
-  - {key: Space, mods: Control, mode: ~Search, action: ToggleViMode}
+  # - {key: Space, mods: Control, mode: ~Search, action: ToggleViMode}
   - {key: F, mods: Alt, action: ToggleFullscreen}
   - {key: D, mods: Command, chars: "\x01s"}
   - {key: D, mods: Command|Shift, chars: "\x01v"}
