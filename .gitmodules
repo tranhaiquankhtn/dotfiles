@@ -3,5 +3,5 @@
     url = https://github.com/alacritty/alacritty-theme
 
 [submodule "nvim"]
-    path = "nvim"
-    url = https://github.com/tranhaiquankhtn/nvim-config
+	path = nvim
+	url = https://github.com/tranhaiquankhtn/nvim-config
