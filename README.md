@@ -1,9 +1,14 @@
-# dotfiles
-
-Dotfiles personal settings:
-- zsh & iTerm
-- neovim
-- fzf
-
+# Dotfiles
+My Personal dotfile
 ---
-![screenshot](./1595072770.png)
+
+
+### Components
+* Shell: zsh & Oh my zsh
+* Terminal: Alacritty
+* Session Manager: tmux
+* Editor: Neovim
+* Fuzzy Finder: fzf
+* Window Manager: yabai
+
+

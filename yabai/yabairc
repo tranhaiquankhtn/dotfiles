@@ -32,4 +32,5 @@ yabai -m config normal_window_opacity 0.8
 # disable apps
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^KakaoTalk$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
 
