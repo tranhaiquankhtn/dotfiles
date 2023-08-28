@@ -3,7 +3,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_RUNTIME_DIR=$HOME/.run
-export XDG_BIN_DIR=$HOME/.bin
+export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_STATE_HOME=$HOME/.local/state
 
 # FZF
@@ -126,11 +126,8 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 # alias
 alias vim='nvim'
 alias ssh="ssh $SSH_CONFIG $SSH_ID "
-alias ssh-copy-id="ssh-copy-id $SSH_ID"
-alias ls="$HOME/.bin/lsd"
-alias "ls -l"="$HOME/.bin/lsd -l"
-alias ll="$HOME/.bin/lsd -al"
-#
+# alias ssh-copy-id="ssh-copy-id $SSH_ID"
+
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
