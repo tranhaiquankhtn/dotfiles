@@ -63,7 +63,7 @@ then
 fi
 
 # Exa
-PATH=$PATH:$XDG_BIN_DIR:/opt/homebrew/bin
+PATH=$PATH:$XDG_BIN_HOME:/opt/homebrew/bin
 export EXA_COLORS="hs_err_pid*=37;41;1"
 
 # Vscode
