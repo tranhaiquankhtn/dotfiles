@@ -34,7 +34,7 @@ export VIMINFOFILE="$XDG_CACHE_HOME/vim/viminfo"
 # User configuration
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
-export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch arm64"
 export TERM=xterm-256color
 export TERMINFO="$XDG_DATA_HOME"/terminfo
 export TERMINFO_DIRS=$TERMINFO_DIRS:$XDG_DATA_HOME/terminfo
@@ -49,6 +49,7 @@ export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 
 # mysql
 export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+PATH="/opt/homebrew/opt/mysql-client@8.4/bin:$PATH"
 
 
 # ssh config
@@ -76,6 +77,7 @@ export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export PYPY_HOME=$HOME/.local/share/pypy3.7
 PATH=$PATH:$POETRY_HOME/bin
+
 
 # Golang
 export GOPATH=$HOME/.local/share/go
@@ -106,10 +108,19 @@ alias mitmweb="mitmweb --set confdir=$XDG_CONFIG_HOME/mitmproxy"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 
+# Java
+export JDTLS_JVM_ARGS="-javaagent:$HOME/.local/share/nvim/mason/packages/jdtls/lombok.jar"
+
 
 # Gradle
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle-7.4.2
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle-8.6
 PATH=$GRADLE_USER_HOME/bin:$PATH
+
+# Ruby & Gem
+export HOMEBREW=/opt/homebrew/Cellar
+export RUBY_HOME=$HOMEBREW/ruby/3.3.5
+export GEM_HOME=$XDG_DATA_HOME/gem
+export PATH=$RUBY_HOME/bin:$GEM_HOME/bin:$PATH
 
 # NPM&Yarn
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
