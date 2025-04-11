@@ -142,3 +142,6 @@ alias ssh="ssh $SSH_CONFIG $SSH_ID "
 # wget
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 alias wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
+
+# export PS1='%(?:%{%}%1{➜%} :%{%}%1{➜%} ) %{%}%c%{%} $(git_prompt_info)'
+
