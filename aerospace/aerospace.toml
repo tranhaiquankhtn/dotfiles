@@ -4,6 +4,8 @@
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
+# Start AeroSpace at login
+start-at-login = true
 after-login-command = []
 
 # You can use it to add commands that run after AeroSpace startup.
@@ -12,11 +14,14 @@ after-login-command = []
 after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
     # so it won't be run twice on AeroSpace restart
+    'exec-and-forget sketchybar',
     'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
 ]
 
-# Start AeroSpace at login
-start-at-login = true
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -45,7 +50,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodness#disable-hide-app
-automatically-unhide-macos-hidden-apps = false
+automatically-unhide-macos-hidden-apps = true
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -66,6 +71,12 @@ outer.left =       10
 outer.bottom =     10
 outer.top =        10
 outer.right =      10
+
+# Currently not supported due to: https://github.com/nikitabobko/AeroSpace/issues/20
+# [[on-window-detected]]
+# check-further-callbacks = true
+# run = 'exec-and-forget sketchybar --trigger windows_on_spaces'
+
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -90,7 +101,7 @@ outer.right =      10
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
+# alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 
 # alt-enter = '''exec-and-forget osascript -e '
 # tell application "Alacritty"
@@ -142,10 +153,16 @@ alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
+alt-shift-n = 'move-node-to-workspace next'
+alt-shift-p = 'move-node-to-workspace prev'
+
 alt-f = 'fullscreen'
 alt-shift-q = ['mode service', 'close-all-windows-but-current', 'mode main']
 alt-shift-space = ['mode service','layout floating tiling', 'mode main']
 alt-shift-r =['mode service', 'flatten-workspace-tree', 'mode main']
+
+# alt-slash = 'split horizontal'
+# alt-comma = 'split vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
@@ -154,9 +171,13 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 alt-shift-c = 'reload-config'
 
+cmd-h = [] # Disable "hide application"
+cmd-alt-h = [] # Disable "hide others"
+
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-semicolon = 'mode service'
+
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
