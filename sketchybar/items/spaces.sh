@@ -1,54 +1,66 @@
 #!/bin/sh
 
-for sid in $(aerospace list-workspaces --monitor all); do
-    space_props=(
-        icon=$sid
-        icon.padding_left=3
-        icon.padding_right=3
-        icon.highlight_color=$RED
-        # associated_space=$sid
-        label.font="sketchybar-app-font:Regular:16.0"
-        label.padding_right=10
-        label.background.height=20
-        label.background.drawing=on
-        # label.background.color=$BACKGROUND_2
-        label.background.corner_radius=8
-        background.drawing=off
-        padding_left=2
-        padding_right=2
-        click_script="aerospace workspace $sid"
-        script="$CONFIG_DIR/plugins/spaces.sh $sid"
-    )
+for m in $(aerospace list-workspaces --monitor all | awk '{print $1}'); do
+    for i in $(aerospace list-workspaces --monitor $m); do
+        sid=$i
+        space=(
+            space="$sid"
+            icon="$sid"
+            icon.highlight_color=$WHITE
+            icon.padding_left=5
+            icon.padding_right=5
+            display=$m
+            label.padding_right=20
+            label.color=$GREY
+            label.highlight_color=$WHITE
+            label.font="sketchybar-app-font:Regular:16.0"
+            label.y_offset=-1
+            background.color=$BACKGROUND_1
+            background.border_color=$BACKGROUND_2
+            padding_left=2
+            padding_right=2
+            click_script="aerospace workspace $sid"
+            script="$PLUGIN_DIR/spaces.sh"
+        )
 
-    sketchybar --add item space.$sid left                       \
-               --subscribe space.$sid aerospace_workspace_change \
-               --set space.$sid "${space_props[@]}"
+        sketchybar --add space space.$sid left \
+                --set space.$sid "${space[@]}" \
+                --subscribe space.$sid mouse.clicked
+
+        apps=$(aerospace list-windows --workspace $sid | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}' | uniq)
+
+        icon_strip=" "
+        if [ "${apps}" != "" ]; then
+        while read -r app
+        do
+            icon_strip+=" $($CONFIG_DIR/plugins/icon_mapping.sh "$app")"
+        done <<< "${apps}"
+        else
+        icon_strip=" —"
+        fi
+
+        sketchybar --set space.$sid label="$icon_strip"
+    done
+
+  for i in $(aerospace list-workspaces --monitor $m --empty); do
+    sketchybar --set space.$i display=0
+  done
 
 done
-
-spaces=(
-  background.color=$BACKGROUND_1
-  background.border_color=$SPACE_BORDER
-  background.border_width=1
-  background.drawing=on
-)
 
 separator=(
   icon="|"
   icon.font="$FONT:Heavy:16.0"
   padding_left=15
   padding_right=15
+  display=active
   label.drawing=off
   associated_display=active
-  icon.color=$WHITE
-  script="$CONFIG_DIR/plugins/space_window.sh"
-  # click_script='yabai -m space --create && sketchybar --trigger space_change'
+  icon.color=$GREY
+  script="$PLUGIN_DIR/space_window.sh"
 )
 
-sketchybar --add bracket spaces '/space\..*/' \
-           --set spaces "${spaces[@]}"        \
-                                              \
-           --add item separator left          \
-           --set separator "${separator[@]}"  \
-                                              \
-           --subscribe separator space_windows_change
+sketchybar --add item separator left           \
+           --set separator "${separator[@]}"   \
+           --subscribe separator aerospace_workspace_change
+

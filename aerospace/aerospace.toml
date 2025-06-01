@@ -19,7 +19,7 @@ after-startup-command = [
 ]
 
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    'sketchybar --trigger aerospace_workspace_change AEROSPACE_FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE AEROSPACE_PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
 ]
 
 
@@ -69,7 +69,7 @@ inner.horizontal = 10
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     10
-outer.top =        10
+outer.top =        [{ monitor."main" = 10 }, 40]
 outer.right =      10
 
 # Currently not supported due to: https://github.com/nikitabobko/AeroSpace/issues/20
