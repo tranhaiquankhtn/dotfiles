@@ -4,14 +4,12 @@
 #     sketchybar --set "$NAME" label="$INFO" icon="$($CONFIG_DIR/plugins/icon_mapping.sh "$INFO")"
 # fi
 
-AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
-AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
+FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
 
 if [ "$SENDER" = "front_app_switched" ]; then
-  #echo name:$NAME INFO: $INFO SENDER: $SENDER, SID: $SID >> ~/aaaa
   sketchybar --set "$NAME" label="$INFO" icon.background.image="app.$INFO" icon.background.image.scale=0.8
 
-  apps=$AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR
+  apps=$(aerospace list-windows --workspace $FOCUSED_WORKSPACE | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}' | uniq)
   icon_strip=" "
   if [ "${apps}" != "" ]; then
     while read -r app
@@ -21,5 +19,5 @@ if [ "$SENDER" = "front_app_switched" ]; then
   else
     icon_strip=" —"
   fi
-  sketchybar --set space.$AEROSPACE_FOCUSED_MONITOR_NO label="$icon_strip"
+  sketchybar --set space.$FOCUSED_WORKSPACE label="$icon_strip"
 fi

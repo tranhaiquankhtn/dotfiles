@@ -42,10 +42,9 @@ for m in $(aerospace list-workspaces --monitor all | awk '{print $1}'); do
         sketchybar --set space.$sid label="$icon_strip"
     done
 
-  for i in $(aerospace list-workspaces --monitor $m --empty); do
-    sketchybar --set space.$i display=0
-  done
-
+    for i in $(aerospace list-workspaces --monitor $m --empty); do
+        sketchybar --set space.$i display=0
+    done
 done
 
 separator=(
