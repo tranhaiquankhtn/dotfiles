@@ -6,6 +6,7 @@ for m in $(aerospace list-workspaces --monitor all | awk '{print $1}'); do
         space=(
             space="$sid"
             icon="$sid"
+            icon.color=$GREY
             icon.highlight_color=$WHITE
             icon.padding_left=5
             icon.padding_right=5
